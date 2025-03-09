@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Confirmation</title>
+</head>
+
+<body>
+  <p>Dear {{name}},</p>
+  <p>We are pleased to confirm your booking with {{company}} via Tripket PH. Below are your ticket details:</p>
+  <h2>Ticket Details</h2>
+  <p><strong>Booking Status:</strong> <span>{{status}}</span> </p>
+  <p><strong>Departure Information:</strong><br>
+    {{departure}}<br>
+  <p><strong>Route Information:</strong><br>
+    {{route}}: {{route}}
+  </p>
+  <p><strong>Ticket Information:</strong><br>
+    Ticket No.: <b>{{number}}</b> <i>&larr; Present this in the {{company}}'s port.</i><br>
+    Booking ID: {{id}}<br>
+    Total: {{total}}</p>
+  <p>Please ensure to arrive at the terminal at least 30 minutes before departure. For any inquiries or changes to your
+    booking, feel free to contact us.</p>
+  <p>For more ticket details please check your ticket in the <b>Tripket PH</b> mobile app in the <u>Ticket Wallet</u>
+    section</p>
+  <p>Thank you for choosing Tripket PH. We wish you a pleasant journey!</p>
+  <p><strong>Best regards,</strong><br>
+    Tripket PH</p>
+</body>
+<footer>
+  <img class="rounded-full w-10" src="https://admin.tripketph.com/png/logo.png" alt="Tripket PH Logo">
+</footer>
+
+<style>
+  .rounded-full {
+    border-radius: 9999px;
+  }
+
+  .w-10 {
+    width: 2.5rem;
+  }
+</style>
+
+</html>
