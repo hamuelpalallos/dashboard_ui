@@ -107,7 +107,7 @@ export const useClientStore = defineStore('client-store', () => {
 
   const ticketsSource = computed(() => hasAccess.value ? company_reference.value?.tickets_query(dateRange.value) : null)
   const { data: ticketsData, pending: ticketsPending } = useCollection<Ticket>(ticketsSource, { maxRefDepth })
-  const tickets = computed(() => ticketsData.value?.map(t => convertToNative(t)) ?? [])
+  const tickets = computed<Ticket[]>(() => ticketsData.value?.map(t => convertToNative(t)) ?? [])
 
   const cargoTypeCategoriesSource = computed(() => hasAccess.value ? company_reference.value?.cargo_type_categories() : null)
 

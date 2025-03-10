@@ -1,5 +1,5 @@
 import type { TicketSubStatus } from '~/types/models/passenger-types'
-
+import type {BadgeProps} from '#ui/types'
 export class TicketInstance implements Ticket {
   constructor(data: Ticket) {
     this.id = data.id
@@ -177,28 +177,28 @@ export class TicketInstance implements Ticket {
     }
   }
 
-  static statusColor = (status?: TicketStatus | TicketSubStatus) => {
+  static statusColor = (status?: TicketStatus | TicketSubStatus):BadgeProps['color'] => {
     switch (status?.toLowerCase()) {
       case 'paid' :
       case 'booked' :
-        return 'green'
+        return 'success'
       case 'inspected':
       case 'boarding':
-        return 'teal'
+        return 'info'
       case 'used':
       case 'boarded':
-        return 'blue'
+        return 'success'
       case 'cancelled':
-        return 'red'
+        return 'error'
       case 'pending':
-        return 'yellow'
+        return 'warning'
       case 'refunded':
-        return 'orange'
+        return 'warning'
       case 'unpaid':
       case 'planned':
-        return 'gray'
+        return 'neutral'
       default:
-        return 'orange'
+        return 'neutral'
     }
   }
 

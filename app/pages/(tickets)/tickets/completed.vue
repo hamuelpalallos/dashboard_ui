@@ -152,33 +152,16 @@ const openTicket = (row: TableRowTicket) => {
 <template>
   <UDashboardPanelContent class="p-0">
     <!-- <ClientOnly> -->
-    <DataTable
-      :title
-      :items
-      :columns
-      :loading
-      :default-sort
-    >
+    <DataTable :title :items :columns :loading :default-sort>
       <template #header-right>
-        <CustomDatePicker
-          v-model="adminStore.dateRange"
-          type="date"
-          class="p-0"
-        />
+        <CustomDatePicker v-model="adminStore.dateRange" type="date" class="p-0" />
       </template>
       <template #user-column="{ row }">
         <div class="flex items-center gap-3">
-          <UAvatar
-            :alt="row.user_initials"
-            :src="row.user_image"
-            size="xs"
-          />
+          <UAvatar :alt="row.user_initials" :src="row.user_image" size="xs" />
 
           <div class="flex flex-col">
-            <span
-              v-if="row.user_name"
-              class="text-gray-900 dark:text-white font-medium"
-            >
+            <span v-if="row.user_name" class="text-gray-900 dark:text-white font-medium">
               {{ row.user_name }}
             </span>
             <span class="text-xs text-ellipsis text-gray-400 dark:text-gray font-medium">{{ row.user_email }}</span>
@@ -187,27 +170,15 @@ const openTicket = (row: TableRowTicket) => {
       </template>
 
       <template #status-column="{ row }">
-        <UBadge
-          :color="TicketInstance.statusColor(row.status)"
-          :label="row.status"
-          variant="subtle"
-          class="uppercase"
-        />
+        <UBadge :color="TicketInstance.statusColor(row.status)" :label="row.status" variant="subtle"
+          class="uppercase" />
       </template>
       <template #options-column="{ row }">
-        <DropdownActions
-          :key="row.id"
-          :row
-          :actions="actionOptions"
-          :open="() => openTicket(row)"
-          @click.prevent.stop
-        />
+        <DropdownActions :key="row.id" :row :actions="actionOptions" :open="() => openTicket(row)"
+          @click.prevent.stop />
       </template>
     </DataTable>
     <!-- </ClientOnly> -->
-    <ModalTicket
-      v-model="isTicketModalOpen"
-      :ticket="selectedTicket"
-    />
+    <ModalTicket v-model="isTicketModalOpen" :ticket="selectedTicket" />
   </UDashboardPanelContent>
 </template>

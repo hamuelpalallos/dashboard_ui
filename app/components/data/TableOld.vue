@@ -9,6 +9,7 @@ interface Props {
   indexed?: boolean
   withActions?: boolean
   markAsOptions?: any[][]
+
   by?: string
 }
 
@@ -24,33 +25,14 @@ const {
   by
 } = defineProps<Props>()
 
-// const log = useLogger()
-// const markAsOptions = [
-//   [{
-//     key: 'completed',
-//     label: 'Completed',
-//     icon: 'i-heroicons-check'
-//   }], [{
-//     key: 'uncompleted',
-//     label: 'In Progress',
-//     icon: 'i-heroicons-arrow-path'
-//   }]
-// ]
 
-// Selected Rows
-// const selectedRows = ref<any[]>([])
+
+
 const selectedRows = defineModel<[]>({
   default: []
 })
 
-// function select(row: any) {
-//   const index = selectedRows.value.findIndex((item: any) => item.id === row.id)
-//   if (index === -1) {
-//     selectedRows.value.push(row)
-//   } else {
-//     selectedRows.value.splice(index, 1)
-//   }
-// }
+
 
 type DropdownFilter = {
   key: string

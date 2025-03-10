@@ -7,9 +7,9 @@ const links = [[{
   icon: 'i-lucide-house',
   to: '/'
 }, {
-  label: 'Passenger Types',
-  icon: 'i-lucide-inbox',
-  to: '/maintenance/passenger-type-classes'
+  label: 'Tickets',
+  icon: 'i-lucide-ticket',
+  to: '/all-tickets'
 }, {
   label: 'Inbox',
   icon: 'i-lucide-inbox',
@@ -96,12 +96,8 @@ onMounted(async () => {
   <UDashboardGroup>
     <UDashboardSearch :groups="groups" />
 
-    <UDashboardSidebar
-      collapsible
-      resizable
-      class="bg-(--ui-bg-elevated)/25"
-      :ui="{ footer: 'lg:border-t lg:border-(--ui-border)' }"
-    >
+    <UDashboardSidebar collapsible resizable class="bg-(--ui-bg-elevated)/25"
+      :ui="{ footer: 'lg:border-t lg:border-(--ui-border)' }">
       <template #header="{ collapsed }">
         <TeamsMenu :collapsed="collapsed" />
       </template>
@@ -109,18 +105,9 @@ onMounted(async () => {
       <template #default="{ collapsed }">
         <UDashboardSearchButton :collapsed="collapsed" class="bg-transparent ring-(--ui-border)" />
 
-        <UNavigationMenu
-          :collapsed="collapsed"
-          :items="links[0]"
-          orientation="vertical"
-        />
+        <UNavigationMenu :collapsed="collapsed" :items="links[0]" orientation="vertical" />
 
-        <UNavigationMenu
-          :collapsed="collapsed"
-          :items="links[1]"
-          orientation="vertical"
-          class="mt-auto"
-        />
+        <UNavigationMenu :collapsed="collapsed" :items="links[1]" orientation="vertical" class="mt-auto" />
       </template>
 
       <template #footer="{ collapsed }">

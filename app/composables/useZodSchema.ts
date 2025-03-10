@@ -8,6 +8,10 @@ const MSGS = {
   'field.unique': 'Duplicate is not allowed'
 }
 export const useZodSchema = () => {
+  const LoginSchema = z.object({
+    email: z.string().email(),
+    password: z.string().min(8)
+  })
   const RequiredStringSchema = z.string().refine(value => value.trim().length > 0, MSGS['field.required'])
   const DatabaseRecordSchema = z.object({
     id: z.string().optional(),
@@ -436,6 +440,7 @@ export const useZodSchema = () => {
     PortSchema,
     TripCancellationSchema,
     RouteSchema,
-    DateSettingSchema
+    DateSettingSchema,
+    LoginSchema
   }
 }

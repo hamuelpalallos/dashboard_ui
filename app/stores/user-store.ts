@@ -13,7 +13,7 @@ export const useUserStore = defineStore(
     const color = useColor()
     const clientStore = useClientStore()
     // const devMode = useDevMode()
-    const devMode = computed(() => import.meta.env.DEV && true)
+    const devMode = computed(() => import.meta.env.DEV && false)
     const adminStore = useAdminStore()
     const { convertReferenceSnapshotObjects: convertToNative } = useUtils()
 

@@ -161,15 +161,7 @@ const actionOptions = [
 
 <template>
   <UDashboardPanelContent class="p-0">
-    <DataTable
-      v-model="selectedRows"
-      :title="pageData.title"
-      :items
-      :columns
-      :loading
-      :default-sort
-      :mark-as-options
-    >
+    <DataTable v-model="selectedRows" :title="pageData.title" :items :columns :loading :default-sort :mark-as-options>
       <!-- <template #header-right>
         <CustomDatePicker
           v-model="clientStore.dateRange"
@@ -178,43 +170,22 @@ const actionOptions = [
         />
       </template> -->
       <template #header-right>
-        <UButton
-          :label="`New ${pageData.category}`"
-          trailing-icon="i-heroicons-plus"
-          color="neutral"
-          @click="addItem"
-        />
+        <UButton :label="`New ${pageData.category}`" trailing-icon="i-heroicons-plus" color="neutral"
+          @click="addItem" />
       </template>
       <template #active-column="{ row }">
         <TableColumnActive :value="row.active" />
       </template>
 
       <template #options-column="{ row }">
-        <DropdownActions
-          :key="row.id"
-          :row
-          :actions="actionOptions"
-          :open="() => openItem(row)"
-          @click.prevent.stop
-        />
+        <DropdownActions :key="row.id" :row :actions="actionOptions" :open="() => openItem(row)" @click.prevent.stop />
       </template>
     </DataTable>
-    <UModal
-      v-model="openModalForm"
-      :on-close="() => itemId = undefined"
-    >
-      <FormPassengerTypeClass
-        :item="selectedItem"
-        @success="openModalForm = false"
-      />
+    <UModal v-model="openModalForm" :on-close="() => itemId = undefined">
+      <FormPassengerTypeClass :item="selectedItem" @success="openModalForm = false" />
     </UModal>
-    <ModalPromptDelete
-      v-model="openModalDelete"
-      :title="`Delete ${pageData.category}`"
+    <ModalPromptDelete v-model="openModalDelete" :title="`Delete ${pageData.category}`"
       :description="`Are you sure you want to delete (${selectedIds.length}) ${pageData.categories}?`"
-      :on-close="() => itemId = undefined"
-      :loading="deleteLoading"
-      :accept="deleteItemContinue"
-    />
+      :on-close="() => itemId = undefined" :loading="deleteLoading" :accept="deleteItemContinue" />
   </UDashboardPanelContent>
 </template>
