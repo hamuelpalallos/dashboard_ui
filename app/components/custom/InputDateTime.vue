@@ -93,7 +93,7 @@ const formatted = computed(() => {
             v-for="(range, index) in ranges"
             :key="index"
             :label="range.label"
-            color="gray"
+            color="neutral"
             variant="ghost"
             class="rounded-none px-6"
             :class="[isRangeSelected(range.duration) ? 'bg-gray-100 dark:bg-gray-800' : 'hover:bg-gray-50 dark:hover:bg-gray-800/50']"

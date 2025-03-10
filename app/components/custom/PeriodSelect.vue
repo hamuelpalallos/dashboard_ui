@@ -54,7 +54,7 @@ watch(periods, () => {
   >
     <UButton
       :label="model"
-      color="gray"
+      color="neutral"
       variant="ghost"
       class="capitalize"
       :class="[open && 'bg-gray-50 dark:bg-gray-800']"

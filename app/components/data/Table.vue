@@ -1,6 +1,4 @@
 <script lang="ts" setup generic="T extends {id: string}">
-import type { DropdownItem } from '#ui/types'
-
 interface Props {
   title?: string
   description?: string
@@ -10,7 +8,7 @@ interface Props {
   defaultSort?: { column: string, direction: 'asc' | 'desc' }
   indexed?: boolean
   withActions?: boolean
-  markAsOptions?: DropdownItem[][]
+  markAsOptions?: any[][]
   by?: string
 }
 
@@ -41,7 +39,7 @@ const {
 
 // Selected Rows
 // const selectedRows = ref<any[]>([])
-const selectedRows = defineModel<any[]>({
+const selectedRows = defineModel<[]>({
   default: []
 })
 
@@ -253,14 +251,6 @@ function capitalize(str: string): string {
 <template>
   <UCard
     class="w-full"
-    :ui="{
-      base: '',
-      ring: '',
-      divide: 'divide-y divide-gray-200 dark:divide-gray-700',
-      header: { padding: 'px-4 py-5' },
-      body: { padding: '', base: 'divide-y divide-gray-200 dark:divide-gray-700' },
-      footer: { padding: 'p-4' }
-    }"
   >
     <template #header>
       <div class="flex justify-between gap-3 items-center">
@@ -300,7 +290,7 @@ function capitalize(str: string): string {
           :placeholder="dropdownItem?.label ?? 'Filter'"
           class="w-40"
         >
-          <template #label="{ selected }">
+          <template #item="{ selected }">
             {{ dropdownItem?.label??'Filter' }} {{ selected.length ? `(${selected.length})` : '' }}
           </template>
         </USelectMenu>
@@ -313,7 +303,7 @@ function capitalize(str: string): string {
         <span class="text-sm leading-5">Rows per page:</span>
 
         <USelect
-          v-model.number="pageCount"
+          v-model="pageCount"
           :options="[3, 5, 10, 20, 30, 40]"
           class="me-2 w-20"
           size="xs"
@@ -329,7 +319,7 @@ function capitalize(str: string): string {
           <UButton
             icon="i-heroicons-chevron-down"
             trailing
-            color="gray"
+            color="neutral"
             size="xs"
           >
             Mark as
@@ -344,13 +334,16 @@ function capitalize(str: string): string {
           class="hidden lg:block"
           size="xs"
         >
-          <template #label>
-            Display
-          </template>
+          <UButton
+            label="Display"
+            color="neutral"
+            variant="outline"
+            trailing-icon="i-lucide-settings-2"
+          />
         </USelectMenu>
         <UButton
           icon="i-heroicons-funnel"
-          color="gray"
+          color="neutral"
           size="xs"
           @click="resetFilters"
         >
@@ -368,7 +361,6 @@ function capitalize(str: string): string {
       :columns="(filterColumns as any[])"
       :rows
       :loading
-      :ui="{ td: { base: 'max-w-[0] truncate' } }"
       class="w-full"
       sort-mode="manual"
     >
@@ -385,7 +377,7 @@ function capitalize(str: string): string {
           <template
             v-if="col.key === 'indexed' && indexed"
           >
-            <span>{{ row.indexed }}</span>
+            <span>{{ row.index }}</span>
           </template>
           <template
             v-else-if="col.key === 'actions' && withActions"
@@ -419,20 +411,10 @@ function capitalize(str: string): string {
 
         <UPagination
           v-model="page"
-          :next-icon="true"
           :page-count="pageCount"
           :total="pageTotal"
           size="md"
           :max="8"
-          :ui="{
-            wrapper: 'flex items-center gap-1',
-            rounded: 'rounded min-w-[32px] justify-center',
-            default: {
-              activeButton: {
-                variant: 'outline'
-              }
-            }
-          }"
         />
       </div>
     </template>

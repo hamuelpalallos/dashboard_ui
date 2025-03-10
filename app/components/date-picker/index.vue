@@ -40,10 +40,20 @@ const attrs = {
 </script>
 
 <template>
-  <VCalendarDatePicker v-if="date && (date as DatePickerRangeObject)?.start && (date as DatePickerRangeObject)?.end"
-    v-model.range="date" :columns="smallerThanSm ? 1 : 2" :rows="smallerThanSm ? 2 : 1"
-    v-bind="{ ...attrs, ...$attrs }" />
-  <VCalendarDatePicker v-else v-model="date" v-bind="{ ...attrs, ...$attrs }" trim-weeks hide-time-header />
+  <VCalendarDatePicker
+    v-if="date && (date as DatePickerRangeObject)?.start && (date as DatePickerRangeObject)?.end"
+    v-model.range="date"
+    :columns="smallerThanSm ? 1 : 2"
+    :rows="smallerThanSm ? 2 : 1"
+    v-bind="{ ...attrs, ...$attrs }"
+  />
+  <VCalendarDatePicker
+    v-else
+    v-model="date"
+    v-bind="{ ...attrs, ...$attrs }"
+    trim-weeks
+    hide-time-header
+  />
 </template>
 
 <style>

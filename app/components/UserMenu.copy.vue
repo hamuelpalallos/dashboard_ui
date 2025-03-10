@@ -10,15 +10,12 @@ const appConfig = useAppConfig()
 
 const colors = ['red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose']
 const neutrals = ['slate', 'gray', 'zinc', 'neutral', 'stone']
-const userStore = useUserStore()
-const format = useFormat()
-const user = computed(() => {
-  return {
-    name: format.name(userStore.user?.name),
-    avatar: {
-      src: userStore.user?.image,
-      alt: format.name(userStore.user?.name)
-    }
+
+const user = ref({
+  name: 'Benjamin Canac',
+  avatar: {
+    src: 'https://github.com/benjamincanac.png',
+    alt: 'Benjamin Canac'
   }
 })
 

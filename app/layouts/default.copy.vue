@@ -7,10 +7,6 @@ const links = [[{
   icon: 'i-lucide-house',
   to: '/'
 }, {
-  label: 'Passenger Types',
-  icon: 'i-lucide-inbox',
-  to: '/maintenance/passenger-type-classes'
-}, {
   label: 'Inbox',
   icon: 'i-lucide-inbox',
   to: '/inbox',

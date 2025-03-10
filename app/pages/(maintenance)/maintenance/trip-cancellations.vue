@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DropdownItem } from '#ui/types'
+import type { BadgeProps } from '#ui/types'
 
 const input = ref<{ input: HTMLInputElement }>()
 
@@ -74,16 +74,16 @@ const copyToClipboard = (text: string) => {
   })
 }
 
-const activeColor = (active?: string | boolean) => {
+const activeColor = (active?: string | boolean): BadgeProps['color'] => {
   if (typeof active === 'string') {
     switch (active?.toLowerCase()) {
-      case 'yes': return 'green'
+      case 'yes': return 'primary'
       default: {
-        return 'gray'
+        return 'neutral'
       }
     }
   }
-  return active ? 'green' : 'gray'
+  return active ? 'primary' : 'neutral'
 }
 
 const itemId = ref()
@@ -124,7 +124,7 @@ const deleteItemContinue = async () => {
 }
 const deleteItemPrompt = () => (openModalDelete.value = true)
 
-const markAsOptions = computed<DropdownItem[][]>(() => {
+const markAsOptions = computed<any[][]>(() => {
   return [
     [{
       key: 'activate',
@@ -176,7 +176,7 @@ const markAsOptions = computed<DropdownItem[][]>(() => {
         <UButton
           label="New cancellation"
           trailing-icon="i-heroicons-plus"
-          color="gray"
+          color="neutral"
           @click="addItem"
         />
       </template>

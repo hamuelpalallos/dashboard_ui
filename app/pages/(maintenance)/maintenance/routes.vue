@@ -184,7 +184,7 @@ const deleteLoading = ref(false)
         <UButton
           label="Add route"
           icon="i-heroicons-plus"
-          color="gray"
+          color="neutral"
           @click="addItem"
         />
       </template>

@@ -16,7 +16,7 @@ export const useFormState = <T extends DatabaseRecord>(params: {
 
   const loading = ref(false)
   const disabled = computed(() => loading.value)
-  const isNew = computed<boolean>(() => !state?.id)
+  const isNew = computed<boolean>(() => !state.id)
 
   const validate = (x: any): FormError[] => {
     log('validating x:', x)

@@ -165,7 +165,7 @@ const deleteItemPrompt = () => {
         <UButton
           label="New port"
           trailing-icon="i-heroicons-plus"
-          color="gray"
+          color="neutral"
           @click="addItem"
         />
       </template>

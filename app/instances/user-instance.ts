@@ -39,6 +39,7 @@ export class UserInstance implements User {
   nationality?: string
   issuedBy?: User
   admin?: boolean
+
   // set a getter for age calculated from birthdate
   get age(): number {
     const { calculateAge } = useUtils()

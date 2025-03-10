@@ -45,7 +45,7 @@ const open = defineModel<boolean>({ default: false })
             :loading
             :disabled
             variant="outline"
-            color="gray"
+            color="neutral"
             label="Cancel"
             @click="open = false"
           />

@@ -16,18 +16,6 @@ const {
   submit: clientStore.submitPassengerType,
   state: {
     active: true,
-    fee: {
-      type: 'percent-min',
-      percent: 6,
-      min: 15,
-      max: 0,
-      fixed: 0
-    },
-    ageRange: {
-      type: 'min-max',
-      min: 2,
-      max: 60
-    },
     ...item
   },
   meta: {
@@ -81,58 +69,6 @@ const test = () => {
           icon="i-heroicons-flag"
         />
       </UFormGroup>
-
-      <FormSection
-        title="Age Range & Verify"
-        description="Age Range & Verify configuration for passenger type class"
-      >
-        <UFormGroup
-          name="verify"
-          label="Verify"
-          description="Requires proof"
-        >
-          <UToggle
-            v-model="state.verify"
-            :disabled
-            :loading
-          />
-        </UFormGroup>
-        <CustomInputNumberRange
-          v-model="state.ageRange"
-          name="ageRange"
-          label="Age Range"
-          :disabled
-          :loading
-        />
-      </FormSection>
-      <FormSection
-        title="Rate & Fee"
-        description="Rate & Fee configuration for passenger type class"
-      >
-        <UFormGroup
-          name="rate"
-          label="Rate"
-        >
-          <UInput
-            v-model="state.rate"
-            icon="lucide:philippine-peso"
-            hint="Rate per passenger"
-            type="number"
-            min="0"
-            name="rate"
-            label="Rate"
-            :disabled
-            :loading
-          />
-        </UFormGroup>
-        <CustomInputFee
-          v-model="state.fee"
-          name="fee"
-          label="Fee"
-          :disabled
-          :loading
-        />
-      </FormSection>
 
       <UFormGroup
         label="Description"

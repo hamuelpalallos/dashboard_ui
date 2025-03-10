@@ -181,7 +181,7 @@ const actionOptions = [
         <UButton
           :label="`New ${pageData.category}`"
           trailing-icon="i-heroicons-plus"
-          color="gray"
+          color="neutral"
           @click="addItem"
         />
       </template>

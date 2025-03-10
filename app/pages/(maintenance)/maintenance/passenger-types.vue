@@ -72,7 +72,7 @@ const state = reactive(
         <UButton
           :label="`New ${state.meta.category}`"
           trailing-icon="i-heroicons-plus"
-          color="gray"
+          color="neutral"
           @click="state.addItem"
         />
       </template>

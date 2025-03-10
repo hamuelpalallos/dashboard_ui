@@ -9,6 +9,14 @@ export default defineNuxtConfig({
     'nuxt-vuefire'
   ],
 
+  imports: {
+    dirs: [
+      'constants',
+      'instances',
+      'types/**'
+    ]
+  },
+
   devtools: {
     enabled: true
   },

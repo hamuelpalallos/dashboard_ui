@@ -53,7 +53,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
       description="Customize the look and feel of your dashboard."
     >
       <template #links>
-        <UColorModeSelect color="gray" />
+        <UColorModeSelect color="neutral" />
       </template>
     </UDashboardSection>
 

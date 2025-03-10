@@ -32,10 +32,22 @@ const attrs = {
 </script>
 
 <template>
-  <VCalendarDatePicker v-if="type === 'range'" v-model.range="modelValue.range" :mode
-    :columns="smallerThanSm ? 1 : columns" :rows="smallerThanSm ? 2 : 1" v-bind="{ ...attrs, ...$attrs }" />
-  <VCalendarDatePicker v-else v-model="modelValue.single" :mode v-bind="{ ...attrs, ...$attrs }" trim-weeks
-    hide-time-header />
+  <VCalendarDatePicker
+    v-if="type === 'range'"
+    v-model.range="modelValue.range"
+    :mode
+    :columns="smallerThanSm ? 1 : columns"
+    :rows="smallerThanSm ? 2 : 1"
+    v-bind="{ ...attrs, ...$attrs }"
+  />
+  <VCalendarDatePicker
+    v-else
+    v-model="modelValue.single"
+    :mode
+    v-bind="{ ...attrs, ...$attrs }"
+    trim-weeks
+    hide-time-header
+  />
 </template>
 
 <style>

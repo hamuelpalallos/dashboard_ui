@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <UCard
-    :ui="{ header: { padding: '!p-3' }, body: { padding: '!p-3' } }"
+    :ui="{ header: '!p-3', body: '!p-3' }"
   >
     <template #header>
       <div class="col-span-12">

@@ -54,7 +54,7 @@ const approveTicket = async () => {
           <div class="flex items-center justify-between gap-4">
             <UColorModeButton />
             <UButton
-              color="gray"
+              color="neutral"
               variant="ghost"
               icon="i-heroicons-x-mark-20-solid"
               class="-my-1"

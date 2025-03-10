@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { InputColor, InputSize, InputVariant } from '#ui/types'
+import type { InputProps } from '#ui/types'
 
 interface Props {
-  color?: InputColor
-  size?: InputSize
-  variant?: InputVariant
+  color?: InputProps['color']
+  size?: InputProps['size']
+  variant?: InputProps['variant']
 }
 const log = useLogger(false)
 
@@ -12,14 +12,9 @@ const { color, size, variant } = defineProps<Props>()
 
 const modelValue = defineModel<string>({ default: '' })
 const googleMap = useGoogleMaps()
-const inputRef = ref<HTMLInputElement>()
+const inputRef = useTemplateRef('inputRef')
 
 const autocomplete = ref(googleMap.autocomplete)
-
-// const emit = defineEmits<{
-//   change: [id: number] // named tuple syntax
-//   update: [value: string]
-// }>()
 
 const formatted_address = ref('')
 function onPlaceChanged() {
@@ -32,14 +27,8 @@ function onPlaceChanged() {
 const firstValue = ref('')
 onMounted(() => {
   firstValue.value = modelValue.value ?? ''
-  const inputElement = (inputRef.value as any)!.$el.querySelector('input')
+  const inputElement = (inputRef.value)!.$el.querySelector('input')
   log('onMounted INPUT-ADDRESS:', autocomplete.value)
-  // inputElement.onchange = () => {
-  // original
-  // if (firstValue.value !== modelValue.value && modelValue.value !== formatted_address.value) {
-  //   modelValue.value = ''
-  // }
-  // }
   googleMap.setupAutocomplete(inputElement, onPlaceChanged)
 })
 </script>

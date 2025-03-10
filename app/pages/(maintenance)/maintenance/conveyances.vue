@@ -109,13 +109,13 @@ const activeColor = (active?: string | boolean) => {
         <UButtonGroup size="xs">
           <UButton
             icon="i-heroicons-document-duplicate"
-            color="gray"
+            color="neutral"
             variant="solid"
             @click.stop="copyToClipboard(row.id)"
           />
           <UButton
             icon="i-heroicons-arrow-right"
-            color="gray"
+            color="neutral"
             variant="solid"
             class="px-3"
             @click.stop="viewItem(row.id)"

@@ -2,15 +2,15 @@
 import { sub, format, isSameDay, startOfDay, endOfDay, type Duration } from 'date-fns'
 import type { Range } from '~/types'
 // import the proper ButtonColor from the nuxt ui library
-import type { ButtonColor } from '#ui/types'
+import type { ButtonProps } from '#ui/types'
 
 const datePickerId = useId()
 
 interface Props {
   type?: 'date' | 'datetime'
-  variant?: 'outline' | 'solid' | 'ghost'
-  size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  color?: ButtonColor
+  variant?: ButtonProps['variant']
+  size?: ButtonProps['size']
+  color?: ButtonProps['color']
 }
 
 const { type = 'datetime', variant = 'outline', size = 'sm', color = 'primary' } = defineProps<Props>()
@@ -67,7 +67,7 @@ function selectRange(duration: Duration) {
             v-for="(range, index) in ranges"
             :key="index"
             :label="range.label"
-            color="gray"
+            color="neutral"
             variant="ghost"
             class="rounded-none px-6"
             :class="[isRangeSelected(range.duration) ? 'bg-gray-100 dark:bg-gray-800' : 'hover:bg-gray-50 dark:hover:bg-gray-800/50']"

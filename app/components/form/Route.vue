@@ -352,7 +352,7 @@ const logState = () => {
                   <div>
                     <UButton
                       :class="index === 0? 'mt-6': ''"
-                      color="gray"
+                      color="neutral"
                       icon="i-heroicons-x-mark"
                       @click="removeFieldFootprint(index)"
                     />
@@ -435,7 +435,7 @@ const logState = () => {
                     <div>
                       <UButton
                         :class="index === 0? 'mt-6': ''"
-                        color="gray"
+                        color="neutral"
                         icon="i-heroicons-x-mark"
                         @click="removeFieldPassengerTypeClass(index)"
                       />
@@ -502,7 +502,7 @@ const logState = () => {
                     <div>
                       <UButton
                         :class="index === 0? 'mt-6': ''"
-                        color="gray"
+                        color="neutral"
                         icon="i-heroicons-x-mark"
                         @click="removeFieldCargoTypeClass(index)"
                       />
@@ -608,7 +608,7 @@ const logState = () => {
                     <div>
                       <UButton
                         :class="index === 0? 'mt-6': ''"
-                        color="gray"
+                        color="neutral"
                         icon="i-heroicons-x-mark"
                         @click="removeFieldSchedule(sc.key)"
                       />

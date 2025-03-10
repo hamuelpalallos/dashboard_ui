@@ -16,13 +16,13 @@ const { row, size = 'xs' } = defineProps<Props>()
   >
     <UButton
       icon="i-heroicons-document-duplicate"
-      color="gray"
+      color="neutral"
       variant="solid"
       @click.stop="copy?.(row?.id)"
     />
     <UButton
       icon="i-heroicons-arrow-right"
-      color="gray"
+      color="neutral"
       variant="solid"
       class="px-4"
       @click.stop="view?.(row?.id)"

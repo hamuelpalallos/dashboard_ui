@@ -2,7 +2,7 @@
 import { sub, isSameDay, startOfDay, endOfDay, type Duration } from 'date-fns'
 // import type { Range } from '~/types'
 // import the proper ButtonColor from the nuxt ui library
-import type { ButtonColor } from '#ui/types'
+import type { ButtonProps } from '#ui/types'
 
 const datePickerId = useId()
 
@@ -20,12 +20,12 @@ interface Props {
   type?: DateSettingType
   mode?: DateSettingMode
   variant?: 'outline' | 'solid' | 'ghost'
-  size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  color?: ButtonColor
+  size?: ButtonProps['size']
+  color?: ButtonProps['color']
   datePicker?: DatePickerProps
 }
 
-const { mode = 'datetime', type = 'single', variant = 'solid', size = 'sm', color = 'gray', datePicker = {} } = defineProps<Props>()
+const { mode = 'datetime', type = 'single', variant = 'solid', size = 'sm', color = 'neutral', datePicker = {} } = defineProps<Props>()
 
 const ranges = [
   { label: 'Last 7 days', duration: { days: 7 } },
@@ -83,7 +83,7 @@ const { date_setting: format } = useFormat()
             v-for="(range, index) in ranges"
             :key="index"
             :label="range.label"
-            color="gray"
+            color="neutral"
             variant="ghost"
             class="rounded-none px-6"
             :class="[isRangeSelected(range.duration) ? 'bg-gray-100 dark:bg-gray-800' : 'hover:bg-gray-50 dark:hover:bg-gray-800/50']"
